@@ -30,11 +30,10 @@ public class TaskControllerTest {
 	@Test
 	public void naoDeveSalvarTarefaSemDescricao() {
 		Task todo = new Task();
-		todo.setTask("Descricao");
 		todo.setDueDate(LocalDate.now());
 		try {
 			controller.save(todo);
-			Assert.fail("Não deveria chegar neste ponto");
+			Assert.fail("Não deveria chegar neste ponto!");
 		} catch (ValidationException e) {
 			Assert.assertEquals("Fill the task description", e.getMessage());
 		}
